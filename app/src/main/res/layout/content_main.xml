@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/activity_main"
+    android:orientation="vertical"
+    android:gravity="start">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorbg">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:paddingBottom="50dp"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="start"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/m_income"
+                    android:paddingRight="5dp"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/t_set"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorincome"
+                    android:id="@+id/mIncome" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/m_expense"
+                    android:paddingRight="5dp"
+                    android:textStyle="bold"
+                    android:textSize="20sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/t_set"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorexpense"
+                    android:id="@+id/mExpense" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/m_balance"
+                    android:paddingRight="5dp"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/t_set"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorAccent"
+                    android:id="@+id/mBalance" />
+            </LinearLayout>
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:background="@color/colorLine">
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="start"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/t_income"
+                        android:paddingRight="5dp"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:id="@+id/titleTotIncome" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/t_set"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorincome"
+                        android:id="@+id/tIncome" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/t_expense"
+                        android:paddingRight="5dp"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:id="@+id/titleTotExpenses" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/t_set"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorexpense"
+                        android:id="@+id/tExpense" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/t_balance"
+                        android:paddingRight="5dp"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:id="@+id/titleTotBalance" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/t_set"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorAccent"
+                        android:id="@+id/tBalance" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:background="@color/colorLine">
+            </LinearLayout>
+            <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/b_food"
+                        android:textStyle="bold"
+                        android:id="@+id/bFood"
+                        android:padding="20dp"
+                        android:drawableLeft="@drawable/food"
+                        android:drawableStart="@drawable/food"
+                        android:layout_column="0"
+                        android:onClick="onFood" />
+
+                    <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/b_medical"
+                        android:textStyle="bold"
+                        android:id="@+id/bMedical"
+                        android:padding="20dp"
+                        android:drawableLeft="@drawable/medical"
+                        android:drawableStart="@drawable/medical"
+                        android:layout_column="1"
+                        android:onClick="onMedical"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center_horizontal">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/b_travel"
+                        android:textStyle="bold"
+                        android:id="@+id/bTravel"
+                        android:padding="20dp"
+                        android:drawableLeft="@drawable/trav"
+                        android:drawableStart="@drawable/trav"
+                        android:layout_column="0"
+                        android:onClick="onTravel" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/b_shopping"
+                        android:textStyle="bold"
+                        android:id="@+id/bShopping"
+                        android:padding="20dp"
+                        android:drawableLeft="@drawable/shop"
+                        android:layout_column="1"
+                        android:onClick="onShopping"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/b_stat"
+                        android:textStyle="bold"
+                        android:id="@+id/b_Stat"
+                        android:padding="20dp"
+                        android:drawableLeft="@drawable/stat"
+                        android:layout_column="0"
+                        android:onClick="onStationary"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/b_ent"
+                        android:textStyle="bold"
+                        android:id="@+id/bEnt"
+                        android:padding="20dp"
+                        android:drawableLeft="@drawable/ent"
+                        android:layout_column="1"
+                        android:onClick="onEntertain"/>
+                </TableRow>
+            </TableLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:background="@color/colorLine">
+            </LinearLayout>
+            </LinearLayout>
+    </ScrollView>
+</LinearLayout>

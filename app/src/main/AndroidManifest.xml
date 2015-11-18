@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.sc.myexpenses">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Income"
+            android:label="@string/app_income"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Expense"
+            android:label="@string/app_expense"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".About"
+            android:label="@string/app_about"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ViewAll"
+            android:label="@string/app_viewAll"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Settings"
+            android:label="@string/app_settings"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ListIncome"
+            android:label="@string/app_viewAll_Income"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ListExpense"
+            android:label="@string/app_viewAll_Expense"
+            android:theme="@style/AppTheme" />
+
+    </application>
+
+</manifest>

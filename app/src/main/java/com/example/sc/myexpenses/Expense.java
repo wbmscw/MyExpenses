@@ -158,7 +158,7 @@ public class Expense extends AppCompatActivity {
     protected Dialog onCreateDialog(int id){
 
         if(id==DIALOG_ID)
-            return new DatePickerDialog(this,dpickerListner,year_x,month_x,date_x);
+            return new DatePickerDialog(this,dpickerListner,year_x,month_x-1,date_x);
         return null;
     }
 
@@ -167,7 +167,7 @@ public class Expense extends AppCompatActivity {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
             year_x=year;
-            month_x=monthOfYear;
+            month_x=monthOfYear+1;
             date_x=dayOfMonth;
 
             currentD.setText(year_x + "-" + month_x + "-" + date_x);

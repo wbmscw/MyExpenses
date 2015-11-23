@@ -54,56 +54,59 @@ public class MainActivity extends AppCompatActivity {
 
         //set monthly income expense & balance from the database
         if(Objects.equals(monthlyIncome, null) && Objects.equals(monthlyExpense, null)){
-            mIncome.setText("0");
-            mExpense.setText("0");
-            mBalance.setText("0");
+            mIncome.setText("0.0");
+            mExpense.setText("0.0");
+            mBalance.setText("0.0");
         }else{
             if(Objects.equals(monthlyIncome, null)){
-                mIncome.setText("0");
+                mIncome.setText("0.0");
                 mExpense.setText(monthlyExpense);
                 double bal = 0-Double.parseDouble(monthlyExpense);
                 mBalance.setText(String.valueOf(bal));
             }else{
                 if(Objects.equals(monthlyExpense, null)){
-                    mIncome.setText(monthlyIncome);
-                    mExpense.setText("0");
-                    double bal = Double.parseDouble(monthlyIncome);
-                    mBalance.setText(String.valueOf(bal));
+                    double inc=Double.parseDouble(monthlyIncome);
+                    mIncome.setText(String.valueOf(inc));
+                    mExpense.setText("0.0");
+                    mBalance.setText(String.valueOf(inc));
                 }else{
-                    mIncome.setText(monthlyIncome);
-                    mExpense.setText(monthlyExpense);
-                    double bal = Double.parseDouble(monthlyIncome)-Double.parseDouble(monthlyExpense);
-                    mBalance.setText(String.valueOf(bal));
+                    double inc=Double.parseDouble(monthlyIncome);
+                    double ex=Double.parseDouble(monthlyExpense);
+                    mIncome.setText(String.valueOf(inc));
+                    mExpense.setText(String.valueOf(ex));
+                    mBalance.setText(String.valueOf(inc-ex));
                 }
             }
         }
 
         //set total income expense & balance from the database
         if(Objects.equals(totalIncome, null) && Objects.equals(totalExpense, null)){
-            tIncome.setText("0");
-            tExpense.setText("0");
-            tBalance.setText("0");
+            tIncome.setText("0.0");
+            tExpense.setText("0.0");
+            tBalance.setText("0.0");
         }else{
             if(Objects.equals(totalIncome, null)){
-                tIncome.setText("0");
+                tIncome.setText("0.0");
                 tExpense.setText(totalExpense);
                 double bal = 0-Double.parseDouble(totalExpense);
                 tBalance.setText(String.valueOf(bal));
             }else{
                 if(Objects.equals(totalExpense, null)){
-                    tIncome.setText(totalIncome);
-                    tExpense.setText("0");
-                    double bal = Double.parseDouble(totalIncome)-0;
-                    tBalance.setText(String.valueOf(bal));
+                    double inc=Double.parseDouble(totalIncome);
+                    tIncome.setText(String.valueOf(inc));
+                    tExpense.setText("0.0");
+                    tBalance.setText(String.valueOf(inc));
                 }else{
-                    tIncome.setText(totalIncome);
-                    tExpense.setText(totalExpense);
-                    double bal = Double.parseDouble(totalIncome)-Double.parseDouble(totalExpense);
-                    tBalance.setText(String.valueOf(bal));
+                    double inc=Double.parseDouble(totalIncome);
+                    double ex=Double.parseDouble(totalExpense);
+                    tIncome.setText(String.valueOf(inc));
+                    tExpense.setText(String.valueOf(ex));
+                    tBalance.setText(String.valueOf(inc-ex));
                 }
             }
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -33,34 +33,33 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 
     // Income Table Columns names
     public static final String I_ID = "id";
-    public static final String I_DATE = "idate";
+    public static final String I_DATE = "date";
     public static final String I_AMOUNT = "amount";
     public static final String I_DESCRIPTION = "description";
 
     //Expense Table Column names
-    private static final String E_ID = "id";
-    private static final String E_DATE = "idate";
-    private static final String E_AMOUNT = "amount";
-    private static final String E_CATEGORY = "category";
-    private static final String E_ITEM = "iName";
-    private static final String E_METHOD = "pMethod";
-    private static final String E_DESCRIPTION = "description";
+    public static final String E_ID = "id";
+    public static final String E_DATE = "date";
+    public static final String E_AMOUNT = "amount";
+    public static final String E_CATEGORY = "category";
+    public static final String E_ITEM = "iName";
+    public static final String E_METHOD = "pMethod";
+    public static final String E_DESCRIPTION = "description";
 
-    String CREATE_INCOME = "CREATE TABLE " + TABLE_INCOME + "("
+    public String CREATE_INCOME = "CREATE TABLE " + TABLE_INCOME + "("
             + I_ID + " INTEGER PRIMARY KEY," + I_DATE + " DATE,"
-            + I_AMOUNT + " DOUBLE," + I_DESCRIPTION + " TEXT" + ")";
+            + I_AMOUNT + " DOUBLE(15,2)," + I_DESCRIPTION + " TEXT(30)" + ")";
 
-    String CREATE_EXPENSE = "CREATE TABLE " + TABLE_EXPENSE + "("
+    public String CREATE_EXPENSE = "CREATE TABLE " + TABLE_EXPENSE + "("
             + E_ID + " INTEGER PRIMARY KEY," + E_DATE + " DATE,"
-            + E_AMOUNT + " DOUBLE," + E_CATEGORY + " TEXT,"+ E_ITEM + " TEXT," + E_METHOD + " TEXT,"
-            + E_DESCRIPTION + " TEXT" + ")";
-    //private static final String CREATE_EXPENSE = "create table if not exists expense(id integer auto_increment,idate date,amount double(10,2) not null,iName varchar(30),pMethod varchar(30),description varchar(200),constraint e_pk primary key(id));";
+            + E_AMOUNT + " DOUBLE(15,2)," + E_CATEGORY + " TEXT(20),"+ E_ITEM + " TEXT(30)," + E_METHOD + " TEXT(20),"
+            + E_DESCRIPTION + " TEXT(30)" + ")";
+
     private static final String SELECT_ALL="SELECT * FROM ";
     private static final String TOTAL_INCOME="SELECT SUM(amount) FROM "+TABLE_INCOME;
     private static final String TOTAL_EXPENSE="SELECT SUM(amount) FROM "+TABLE_EXPENSE;
 
     private int year_x,month_x;
-
     private final Context context;
 
     public DatabaseHandler(Context context) {
@@ -95,7 +94,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
      **/
 
     //add data
-    void addIncome(Income income) {
+    public void addIncome(Income income) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -107,7 +106,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         db.insert(TABLE_INCOME, null, values);
         db.close(); // Closing database connection
     }
-    void addExpense(Expense expense) {
+    public void addExpense(Expense expense) {
         SQLiteDatabase db = this.getWritableDatabase();
 
 
@@ -123,26 +122,6 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         db.insert(TABLE_EXPENSE, null, contentValues);
         db.close(); // Closing database connection
     }
-    /*public boolean insertDataExpense(String date, double amount,String iName, String pMethod, String description){
-//idate date,amount double(6,2) not null, iName varchar, pMethod varchar, description varchar(200)
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(E_AMOUNT, amount);
-        contentValues.put(E_DESCRIPTION, description);
-        contentValues.put(E_DATE, date);
-        contentValues.put(E_ITEM, iName);
-        contentValues.put(E_METHOD, pMethod);
-
-        long result = db.insert(TABLE_EXPENSE, null, contentValues);
-
-        if(result==-1)
-            return false;
-        else
-            return true;
-
-    }*/
-
 
     public Cursor getAllIncomeData(){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -239,7 +218,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
                 //Log.d("Reading: ", "Reading all expense.....ID.." + cursor.getString(0));
                 String name = "\nDate: "+cursor.getString(1) +"\n"+ "Amount: "+cursor.getString(2)
                         +"\n"+ "Category: "+cursor.getString(3)+"\n";
-                ListExpense.ArrayofExpense.add(name);
+                ListExpense.arrayOfExpense.add(name);
 
                 // Adding expense to list
                 expenseList.add(expense);
@@ -254,7 +233,6 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     public String getTIncome() {
         String tincome="";
         SQLiteDatabase database = this.getReadableDatabase();
-        //String selectQuery = "SELECT sum(amount) FROM income";
         Cursor cursor = database.rawQuery(TOTAL_INCOME, null);
         if(cursor!=null && cursor.getCount()>0)
         {
@@ -269,7 +247,6 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     public String getTExpense() {
         String texpense="";
         SQLiteDatabase database = this.getReadableDatabase();
-        //String selectQuery = "SELECT sum(amount) FROM expense";
         Cursor cursor = database.rawQuery(TOTAL_EXPENSE, null);
         if(cursor!=null && cursor.getCount()>0)
         {
@@ -289,8 +266,8 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 
         String mIncome="";
         SQLiteDatabase db = this.getReadableDatabase();
-        String selectQuery ="SELECT sum(amount) FROM income where idate like '"+date+"%'";
-        //Log.d("ADebugTag", "Value of monthly income###########################################################: " + date);
+        String selectQuery ="SELECT sum("+I_AMOUNT+") FROM "+TABLE_INCOME+" where "+I_DATE+" like '"+date+"%'";
+        //Log.d("ADebugTag", "Value of monthly income: " + date);
         Cursor cursor = db.rawQuery(selectQuery, null);
         if(cursor!=null && cursor.getCount()>0)
         {
@@ -310,9 +287,9 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         String date = year_x+"-"+month_x+"-";
 
         String mExpense="";
-        SQLiteDatabase database = this.getReadableDatabase();
-        String selectQuery = "SELECT sum(amount) FROM expense where idate like '" + date + "%'";
-        Cursor cursor = database.rawQuery(selectQuery, null);
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT sum("+E_AMOUNT+") FROM "+TABLE_EXPENSE+" where "+E_DATE+" like '" + date + "%'";
+        Cursor cursor = db.rawQuery(selectQuery, null);
         if(cursor!=null && cursor.getCount()>0)
         {
             cursor.moveToFirst();
@@ -320,7 +297,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
                 mExpense = cursor.getString(0);
             } while (cursor.moveToNext());
         }
-
+        db.close();
         return mExpense;
     }
 

@@ -19,12 +19,12 @@ import java.util.List;
 public class ListExpense extends AppCompatActivity {
     DatabaseHandler mydb;
     ListView listView;
-    public static ArrayList<String> ArrayofExpense = new ArrayList<String>();
+    public static ArrayList<String> arrayOfExpense = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_all);
-        ArrayofExpense.clear();
+        arrayOfExpense.clear();
 
         mydb = new DatabaseHandler(this);
         listView = (ListView)findViewById(R.id.list);
@@ -41,7 +41,7 @@ public class ListExpense extends AppCompatActivity {
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, ArrayofExpense);
+                android.R.layout.simple_list_item_1, arrayOfExpense);
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

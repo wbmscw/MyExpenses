@@ -61,7 +61,7 @@ public class Income extends AppCompatActivity{
     DatabaseHandler mydb;
 
     //variables for Calender
-    private Button btn;
+    private Button btnCal;
     private int year_x,month_x,date_x;
     private static final int DIALOG_ID=0;
     TextView currentD;
@@ -93,8 +93,8 @@ public class Income extends AppCompatActivity{
     //select date
     public void onCalender(View view) {
 
-        btn=(Button)findViewById(R.id.bCalender);
-        btn.setOnClickListener(new View.OnClickListener() {
+        btnCal=(Button)findViewById(R.id.bCalender);
+        btnCal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

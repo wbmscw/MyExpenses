@@ -3,9 +3,7 @@ package com.example.sc.myexpenses;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.Button;
-import android.view.View;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.widget.Toast;
@@ -14,7 +12,7 @@ import android.widget.Toast;
 /**
  * Created by SC on 10/21/2015.
  */
-public class ViewAll extends AppCompatActivity {
+public class View extends AppCompatActivity {
 
     DatabaseHandler mydb;
     Button btnViewIncome ,btnViewExpense,btnDeleteAll;
@@ -24,7 +22,7 @@ public class ViewAll extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.view_all);
+        setContentView(R.layout.view);
 
         mydb = new DatabaseHandler(this);
         btnViewIncome = (Button)findViewById(R.id.bvi);
@@ -35,18 +33,18 @@ public class ViewAll extends AppCompatActivity {
     }
 
 
-    public void onViewExpenses(View view) {
+    public void onViewExpenses(android.view.View view) {
         Intent viewListExpense = new Intent(this,ListExpense.class);
         final int result=1;
         startActivityForResult(viewListExpense, result);
     }
-    public void onViewIncomes(View view) {
+    public void onViewIncomes(android.view.View view) {
         Intent viewListIncome = new Intent(this,ListIncome.class);
         final int result=1;
         startActivityForResult(viewListIncome, result);
     }
-    public void onDelete(View view) {
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(ViewAll.this);
+    public void onDelete(android.view.View view) {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(View.this);
 
         // Setting Dialog Title
         alertDialog.setTitle("Confirm Delete");

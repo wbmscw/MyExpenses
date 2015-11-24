@@ -28,7 +28,7 @@
         <activity android:name=".About"
             android:label="@string/app_about"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ViewAll"
+        <activity android:name=".View"
             android:label="@string/app_viewAll"
             android:theme="@style/AppTheme" />
         <activity android:name=".Settings"
@@ -39,6 +39,12 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".ListExpense"
             android:label="@string/app_viewAll_Expense"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".UpdateExpense"
+            android:label="@string/app_updateExpense"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".UpdateIncome"
+            android:label="@string/app_updateIncome"
             android:theme="@style/AppTheme" />
 
     </application>

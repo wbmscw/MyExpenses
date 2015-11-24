@@ -123,7 +123,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         db.close(); // Closing database connection
     }
 
-    public Cursor getAllIncomeData(){
+    /*public Cursor getAllIncomeData(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery(SELECT_ALL + TABLE_INCOME, null);
         return res;
@@ -132,7 +132,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery(SELECT_ALL + TABLE_EXPENSE, null);
         return res;
-    }
+    }*/
 
 
     //get single data

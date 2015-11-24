@@ -4,124 +4,132 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/text_date"
-            android:id="@+id/textDate" />
+        android:layout_height="match_parent"
+        android:background="@color/colorbg">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="50dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/text_date"
+                    android:id="@+id/textDate" />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/text_date"
-            android:id="@+id/EditDate" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="@string/b_calender"
-            android:textSize="30sp"
-            android:id="@+id/bCalender"
-            android:onClick="onCalender" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/text_date"
+                    android:id="@+id/EditDate" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/cal"
+                    android:background="@color/colorAccent"
+                    android:id="@+id/bCalender"
+                    android:onClick="onCalender"/>
 
-    </LinearLayout>
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/text_amount"
+                    android:id="@+id/textAmount" />
 
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:id="@+id/editTextAmount"
+                    android:layout_weight="1" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/text_amount"
-            android:id="@+id/textAmount" />
+            </LinearLayout>
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:id="@+id/editTextAmount"
-            android:layout_weight="1" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/text_description"
+                    android:id="@+id/textViewDescription" />
 
-    </LinearLayout>
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:id="@+id/editTextDescription"
+                    android:layout_weight="1" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/text_description"
-            android:id="@+id/textViewDescription" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:orientation="horizontal">
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:id="@+id/editTextDescription"
-            android:layout_weight="1" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/b_delete"
+                    android:textSize="20sp"
+                    android:id="@+id/bDelete"
+                    android:textColor="@color/colorexpense"
+                    android:onClick="onDelete" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/b_cancel"
+                    android:textSize="20sp"
+                    android:id="@+id/bCancel"
+                    android:onClick="onCancel" />
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="@string/b_cancel"
-            android:textSize="30sp"
-            android:id="@+id/bCancel"
-            android:onClick="onCancel" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="@string/b_new"
-            android:textSize="30sp"
-            android:id="@+id/bOkNew"
-            android:onClick="onDeleteIn" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="@string/b_ok"
-            android:textSize="30sp"
-            android:id="@+id/bOk"
-            android:onClick="onOk" />
-    </LinearLayout>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/b_update"
+                    android:textSize="20sp"
+                    android:id="@+id/bUpdateEx"
+                    android:onClick="onUpdateIn" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

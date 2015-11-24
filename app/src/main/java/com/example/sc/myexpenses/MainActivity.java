@@ -2,17 +2,13 @@ package com.example.sc.myexpenses;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.util.Log;
 
 import java.util.Objects;
@@ -134,67 +130,67 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onIncome(View view) {
+    public void onIncome(android.view.View view) {
         Intent viewIncome = new Intent(this,Income.class);
         final int result=1;
         startActivityForResult(viewIncome, result);
     }
 
-    public void onAbout(View view) {
+    public void onAbout(android.view.View view) {
         Intent viewAbout = new Intent(this,About.class);
         final int result=1;
         startActivityForResult(viewAbout, result);
     }
 
-    public void onSettings(View view) {
+    public void onSettings(android.view.View view) {
         Intent viewSettings = new Intent(this,Settings.class);
         final int result=1;
         startActivityForResult(viewSettings, result);
     }
 
-    public void onViewAll(View view) {
-        Intent viewAll = new Intent(this,ViewAll.class);
+    public void onViewAll(android.view.View view) {
+        Intent viewAll = new Intent(this,View.class);
         final int result=1;
         startActivityForResult(viewAll, result);
     }
 
 
-    public void onFood(View view) {
+    public void onFood(android.view.View view) {
         Intent viewExpense = new Intent(this,Expense.class);
         final int result=1;
         viewExpense.putExtra("ExtraCategory","Food");
         startActivityForResult(viewExpense, result);
     }
 
-    public void onMedical(View view) {
+    public void onMedical(android.view.View view) {
         Intent viewExpense = new Intent(this,Expense.class);
         final int result=1;
         viewExpense.putExtra("ExtraCategory","Medical");
         startActivityForResult(viewExpense, result);
     }
 
-    public void onTravel(View view) {
+    public void onTravel(android.view.View view) {
         Intent viewExpense = new Intent(this,Expense.class);
         final int result=1;
         viewExpense.putExtra("ExtraCategory","Travel");
         startActivityForResult(viewExpense, result);
     }
 
-    public void onShopping(View view) {
+    public void onShopping(android.view.View view) {
         Intent viewExpense = new Intent(this,Expense.class);
         final int result=1;
         viewExpense.putExtra("ExtraCategory","Shopping");
         startActivityForResult(viewExpense, result);
     }
 
-    public void onStationary(View view) {
+    public void onStationary(android.view.View view) {
         Intent viewExpense = new Intent(this,Expense.class);
         final int result=1;
         viewExpense.putExtra("ExtraCategory","Stationary");
         startActivityForResult(viewExpense, result);
     }
 
-    public void onEntertain(View view) {
+    public void onEntertain(android.view.View view) {
         Intent viewExpense = new Intent(this,Expense.class);
         final int result=1;
         viewExpense.putExtra("ExtraCategory","Entertainment");

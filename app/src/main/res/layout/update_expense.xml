@@ -4,174 +4,177 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/colorbg">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/text_date"
-            android:id="@+id/textDate" />
+            android:paddingBottom="50dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/text_date"
+                    android:id="@+id/textDate" />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/text_date"
-            android:id="@+id/EditDate" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="@string/b_calender"
-            android:textSize="30sp"
-            android:id="@+id/bCalender"
-            android:onClick="onCalender" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/text_date"
+                    android:id="@+id/EDate" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/cal"
+                    android:drawableLeft="@drawable/cal"
+                    android:background="@color/colorAccent"
+                    android:id="@+id/bCalender"
+                    android:onClick="onCalender"/>
+            </LinearLayout>
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/text_amount"
+                    android:id="@+id/textAmount" />
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:id="@+id/editTextAmount"
+                    android:layout_weight="1" />
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/text_item"
+                    android:id="@+id/textItemName" />
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:inputType="text"
+                    android:id="@+id/editTextItemName"
+                    android:layout_weight="1" />
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/text_method"
+                    android:id="@+id/textView" />
+                <Spinner
+                    android:id="@+id/spinner_payment_method"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:textSize="30sp"
+                    android:background="@color/colorbg"/>
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/text_amount"
-            android:id="@+id/textAmount" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/text_description"
+                    android:id="@+id/textViewDescription" />
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:id="@+id/editTextDescription"
+                    android:layout_weight="1" />
+            </LinearLayout>
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:id="@+id/editTextAmount"
-            android:layout_weight="1" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:orientation="horizontal">
 
-    </LinearLayout>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/b_delete"
+                    android:id="@+id/bDelete"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorexpense"
+                    android:onClick="onDelete" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/text_item"
-            android:id="@+id/textItemName" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/b_cancel"
+                    android:id="@+id/bCancel"
+                    android:textSize="20sp"
+                    android:onClick="onCancel" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:id="@+id/editTextItemName"
-            android:layout_weight="1" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/text_method"
-            android:id="@+id/textView" />
-
-        <Spinner
-            android:id="@+id/spinner_payment_method"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:textSize="30sp"
-            android:background="#e0ceff"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/text_description"
-            android:id="@+id/textViewDescription" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:id="@+id/editTextDescription"
-            android:layout_weight="1" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="@string/b_cancel"
-            android:textSize="30sp"
-            android:id="@+id/bCancel"
-            android:onClick="onCancel" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="@string/b_delete"
-            android:textSize="30sp"
-            android:id="@+id/bOkNew"
-            android:onClick="onDeleteEx" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="@string/b_ok"
-            android:textSize="30sp"
-            android:id="@+id/bOk"
-            android:onClick="onOk" />
-    </LinearLayout>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/b_update"
+                    android:id="@+id/bUpdateEx"
+                    android:textSize="20sp"
+                    android:onClick="onUpdate" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

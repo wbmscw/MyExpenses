@@ -1,5 +1,6 @@
 package com.example.sc.myexpenses;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -17,6 +18,7 @@ import java.util.List;
  * Created by SC on 11/16/2015.
  */
 public class ListExpense extends AppCompatActivity {
+    private int id;
     DatabaseHandler mydb;
     ListView listView;
     public static ArrayList<String> arrayOfExpense = new ArrayList<String>();
@@ -45,11 +47,21 @@ public class ListExpense extends AppCompatActivity {
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-                Toast.makeText(getApplicationContext(),
-                        ((TextView) v).getText(), Toast.LENGTH_SHORT).show();
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                id=position+1;
+                Toast.makeText(getApplicationContext(), ((TextView) v).getText(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),id+"" , Toast.LENGTH_SHORT).show();
+                Log.d("Log: ", id + " Is selected");
+                //update();
             }
+
         });
     }
+/*
+    public void update() {
+        Intent viewExpense = new Intent(this,updateExpense.class);
+        final int result=1;
+        viewExpense.putExtra("ExtraId", id);
+        startActivityForResult(viewExpense, result);
+    }*/
 }

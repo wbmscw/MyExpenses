@@ -32,7 +32,6 @@ public class ListIncome extends AppCompatActivity {
         mydb = new DatabaseHandler(this);
         listView = (ListView)findViewById(R.id.list);
 
-        // mydb.addIncome(new Income("2015-09-1",10000 , "test"));
         Log.d("Reading: ", "Reading all expense..");
         List<Income> incomes = mydb.getAllIncome();
         for (Income in : incomes) {
@@ -50,9 +49,8 @@ public class ListIncome extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
                 iid=position+1;
-                Toast.makeText(getApplicationContext(), ((TextView) v).getText(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), ((TextView) v).getText(), Toast.LENGTH_SHORT).show();
                 Log.d("Log: ", id + " Is selected");
-                //update();
                 Intent viewIncome = new Intent(ListIncome.this,UpdateIncome.class);
                 final int result=1;
                 viewIncome.putExtra("ExtraId", String.valueOf(iid));

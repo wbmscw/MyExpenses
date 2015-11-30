@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -31,7 +30,6 @@ public class ListExpense extends AppCompatActivity {
         mydb = new DatabaseHandler(this);
         listView = (ListView)findViewById(R.id.list);
 
-         //mydb.addExpense(new Expense("2015-09-1", 100, "test","test","test"));
         Log.d("Reading: ", "Reading all expense..");
         List<Expense> expense = mydb.getAllExpense();
         for (Expense ex : expense) {
@@ -49,10 +47,8 @@ public class ListExpense extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 eid=position+1;
-                Toast.makeText(getApplicationContext(), ((TextView) v).getText(), Toast.LENGTH_SHORT).show();
-                //Toast.makeText(getApplicationContext(),id+"" , Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), ((TextView) v).getText(), Toast.LENGTH_SHORT).show();
                 Log.d("Log: ", eid + " Is selected");
-                //update();
                 Intent viewExpense = new Intent(ListExpense.this,UpdateExpense.class);
                 final int result=1;
                 viewExpense.putExtra("ExtraId", String.valueOf(eid));
@@ -61,11 +57,4 @@ public class ListExpense extends AppCompatActivity {
 
         });
     }
-/*
-    public void update() {
-        Intent viewExpense = new Intent(this,updateExpense.class);
-        final int result=1;
-        viewExpense.putExtra("ExtraId", id);
-        startActivityForResult(viewExpense, result);
-    }*/
 }

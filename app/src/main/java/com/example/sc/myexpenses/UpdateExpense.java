@@ -3,10 +3,8 @@ package com.example.sc.myexpenses;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.*;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,8 +14,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
-
-import java.util.Objects;
 
 /**
  * Created by SC on 11/23/2015.
@@ -38,6 +34,7 @@ public class UpdateExpense extends AppCompatActivity {
     EditText description;
     Button deleteBtn;
     Button updateBtn;
+
     //set ArrayAdapter
     ArrayAdapter<CharSequence> adapter_pm;
 
@@ -73,7 +70,6 @@ public class UpdateExpense extends AppCompatActivity {
         edate.setText(date);
         itemName.setText(name);
         description.setText(desc);
-        //spinnerPaymentMethod.setTag(method);
 
         //set Spinner for payment method
         Spinner spinnerPaymentMethod = (Spinner)findViewById(R.id.spinner_payment_method);
@@ -127,7 +123,7 @@ public class UpdateExpense extends AppCompatActivity {
                     Log.d("Inserting: ", "Inserting..");
                     mydb.updateExpense(Integer.parseInt(id),expense);
 
-                    Toast.makeText(UpdateExpense.this, "Data updated", Toast.LENGTH_LONG).show();
+                    Toast.makeText(UpdateExpense.this, "Updated", Toast.LENGTH_LONG).show();
                     //restart app
                     Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -162,7 +158,7 @@ public class UpdateExpense extends AppCompatActivity {
                         //delete data
                         mydb.deleteOneExpense(Integer.parseInt(id));
                         mydb.close();
-                        Toast.makeText(getApplicationContext(), "deleted", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Deleted", Toast.LENGTH_SHORT).show();
                         dialog.cancel();
                         //restart app
                         Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage( getBaseContext().getPackageName() );

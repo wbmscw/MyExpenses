@@ -37,7 +37,7 @@ public class ListExpense extends AppCompatActivity {
         for (Expense ex : expense) {
             String log = "Id: " + ex.getID() + " ,Date: " + ex.getDate() + " ,Amount: " + ex.getAmount()
                     + " ,ItemName: " + ex.getname()+ " ,Method: " + ex.getMethod()+ " ,Description: " + ex.getDesc();
-            // Writing Income to log
+            // Writing Expense to log
             Log.d("Expense: ", log);
 
         }
@@ -53,6 +53,10 @@ public class ListExpense extends AppCompatActivity {
                 //Toast.makeText(getApplicationContext(),id+"" , Toast.LENGTH_SHORT).show();
                 Log.d("Log: ", id + " Is selected");
                 //update();
+                Intent viewExpense = new Intent(ListExpense.this,UpdateExpense.class);
+                final int result=1;
+                viewExpense.putExtra("ExtraId", String.valueOf(id));
+                startActivityForResult(viewExpense, result);
             }
 
         });

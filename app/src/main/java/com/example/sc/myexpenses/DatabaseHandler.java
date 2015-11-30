@@ -155,7 +155,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_EXPENSE, new String[]{E_ID,
-                        E_DATE, E_AMOUNT,E_ITEM,E_METHOD,E_CATEGORY, E_DESCRIPTION}, E_ID + "=?",
+                        E_DATE, E_AMOUNT, E_CATEGORY, E_ITEM, E_METHOD, E_DESCRIPTION}, E_ID + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
@@ -163,7 +163,14 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         Expense expense  = new Expense(Integer.parseInt(cursor.getString(0)),
                 cursor.getString(1),
                 Double.parseDouble(cursor.getString(2)),cursor.getString(3),cursor.getString(4), cursor.getString(5),cursor.getString(6));
-        // return income
+        // return expense
+        Log.d("Reading: ", "Reading all expense..");
+
+            String log = "Id: " + cursor.getString(0) + " ,Date: " + cursor.getString(1) + " ,Amount: " + cursor.getString(2)
+                    + " ,ItemName: " +cursor.getString(4)+ " ,Method: " + cursor.getString(5)+ " ,Description: " + cursor.getString(6);
+            // Writing expense to log
+
+
         return expense;
     }
 
@@ -232,8 +239,8 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     //get all total,monthly income expense
     public String getTIncome() {
         String tincome="";
-        SQLiteDatabase database = this.getReadableDatabase();
-        Cursor cursor = database.rawQuery(TOTAL_INCOME, null);
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(TOTAL_INCOME, null);
         if(cursor!=null && cursor.getCount()>0)
         {
             cursor.moveToFirst();
@@ -246,8 +253,8 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     }
     public String getTExpense() {
         String texpense="";
-        SQLiteDatabase database = this.getReadableDatabase();
-        Cursor cursor = database.rawQuery(TOTAL_EXPENSE, null);
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(TOTAL_EXPENSE, null);
         if(cursor!=null && cursor.getCount()>0)
         {
             cursor.moveToFirst();
@@ -302,23 +309,33 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     }
 
     //update data
-    public long updateIncome(int rowId, String date,double amount, String desc) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(I_DATE, date);
-        contentValues.put(I_AMOUNT, amount);
-        contentValues.put(I_DESCRIPTION, desc);
+    public void updateIncome(int rowId, Income income) {
+        ContentValues values = new ContentValues();
+        values.put(I_DATE, income.getDate());
+        values.put(I_AMOUNT, income.getAmount());
+        values.put(I_DESCRIPTION, income.getDesc());
         SQLiteDatabase db = this.getWritableDatabase();
-        long val = db.update(TABLE_INCOME, contentValues,
+        db.update(TABLE_INCOME, values,
                 I_ID + "=" + rowId, null);
         db.close();
-        return val;
+    }
+    public void updateExpense(int rowId,Expense expense) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(E_DATE, expense.getDate());
+        values.put(E_AMOUNT, expense.getAmount());
+        values.put(E_ITEM, expense.getname());
+        values.put(E_METHOD, expense.getMethod());
+        values.put(E_DESCRIPTION, expense.getDesc());
+
+        db.update(TABLE_EXPENSE, values, I_ID + "=" + rowId, null);
+        db.close();
     }
 
     //delete single data
     public int deleteOneIncome(int rowId) {
         SQLiteDatabase db = this.getWritableDatabase();
-        int val = db.delete(TABLE_INCOME,
-                I_ID + "=" + rowId, null);
+        int val = db.delete(TABLE_INCOME, I_ID + "=" + rowId, null);
         db.close();
         return val;
     }

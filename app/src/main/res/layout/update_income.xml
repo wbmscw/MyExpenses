@@ -110,9 +110,9 @@
                     android:layout_height="wrap_content"
                     android:text="@string/b_delete"
                     android:textSize="20sp"
-                    android:id="@+id/bDelete"
+                    android:id="@+id/bDeleteIn"
                     android:textColor="@color/colorexpense"
-                    android:onClick="onDelete" />
+                    android:onClick="onDeleteIn" />
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/b_update"
                     android:textSize="20sp"
-                    android:id="@+id/bUpdateEx"
+                    android:id="@+id/bUpdateIn"
                     android:onClick="onUpdateIn" />
             </LinearLayout>
         </LinearLayout>

@@ -52,6 +52,13 @@ public class Expense extends AppCompatActivity {
         this.emethod=method;
         this.edesc=desc;
     }
+    public Expense(String date,double amount,String name,String method,String desc){
+        this.edate=date;
+        this.eamount=amount;
+        this.ename=name;
+        this.emethod=method;
+        this.edesc=desc;
+    }
 
     public int getID(){return eid;}
     public void setID(int id){this.eid=id;}

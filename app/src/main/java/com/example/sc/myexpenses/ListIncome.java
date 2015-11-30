@@ -1,5 +1,6 @@
 package com.example.sc.myexpenses;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -18,6 +19,7 @@ import java.util.List;
  */
 public class ListIncome extends AppCompatActivity {
 
+    private int iid;
     DatabaseHandler mydb;
     ListView listView;
     public static ArrayList<String> ArrayofIncome = new ArrayList<String>();
@@ -47,8 +49,14 @@ public class ListIncome extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(getApplicationContext(),
-                        ((TextView) v).getText(), Toast.LENGTH_SHORT).show();
+                iid=position+1;
+                Toast.makeText(getApplicationContext(), ((TextView) v).getText(), Toast.LENGTH_SHORT).show();
+                Log.d("Log: ", id + " Is selected");
+                //update();
+                Intent viewIncome = new Intent(ListIncome.this,UpdateIncome.class);
+                final int result=1;
+                viewIncome.putExtra("ExtraId", String.valueOf(iid));
+                startActivityForResult(viewIncome, result);
             }
         });
     }

@@ -23,7 +23,6 @@ public class UpdateIncome extends AppCompatActivity {
     double amount;
     String desc;
     DatabaseHandler mydb;
-    int p=0;
 
     Button deleteBtn;
     Button updateBtn;
@@ -41,14 +40,21 @@ public class UpdateIncome extends AppCompatActivity {
         Log.d("Log::::::::::::::::: ", "Id=" + id);
         Income in = mydb.getIncome(Integer.parseInt(id));
 
-        idate = (TextView)findViewById(R.id.UDate);
+        idate = (TextView)findViewById(R.id.EditDate);
         iamount = (EditText)findViewById(R.id.editTextAmount);
         description = (EditText)findViewById(R.id.editTextDescription);
         deleteBtn =(Button)findViewById(R.id.bDeleteIn);
         updateBtn =(Button)findViewById(R.id.bUpdateIn);
 
-
-
+        amount=in.getAmount();
+        iamount.setText(String.valueOf(amount));
+        date=in.getDate();
+        idate.setText(date);
+        desc=in.getDesc();
+        description.setText(desc);
+        Log.d("Log::::::::::::::::: ", "amount=" + amount);
+        Log.d("Log::::::::::::::::: ", "date=" + date);
+        Log.d("Log::::::::::::::::: ", "desc=" + desc);
 
         updateIncome();
         deleteIncome();

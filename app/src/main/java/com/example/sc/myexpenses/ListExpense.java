@@ -18,7 +18,7 @@ import java.util.List;
  * Created by SC on 11/16/2015.
  */
 public class ListExpense extends AppCompatActivity {
-    private int id;
+    private int eid;
     DatabaseHandler mydb;
     ListView listView;
     public static ArrayList<String> arrayOfExpense = new ArrayList<String>();
@@ -48,14 +48,14 @@ public class ListExpense extends AppCompatActivity {
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                id=position+1;
+                eid=position+1;
                 Toast.makeText(getApplicationContext(), ((TextView) v).getText(), Toast.LENGTH_SHORT).show();
                 //Toast.makeText(getApplicationContext(),id+"" , Toast.LENGTH_SHORT).show();
-                Log.d("Log: ", id + " Is selected");
+                Log.d("Log: ", eid + " Is selected");
                 //update();
                 Intent viewExpense = new Intent(ListExpense.this,UpdateExpense.class);
                 final int result=1;
-                viewExpense.putExtra("ExtraId", String.valueOf(id));
+                viewExpense.putExtra("ExtraId", String.valueOf(eid));
                 startActivityForResult(viewExpense, result);
             }
 

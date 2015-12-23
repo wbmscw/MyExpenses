@@ -37,4 +37,12 @@
         android:padding="20dp"
         android:text="Import Database"
         android:id="@+id/button5" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/b_deleteAll"
+        android:textSize="30sp"
+        android:padding="20dp"
+        android:id="@+id/bda"
+        android:onClick="onDelete"/>
 </LinearLayout>

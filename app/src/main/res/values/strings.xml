@@ -19,6 +19,7 @@
     <string name="t_expense">Total expense: </string>
     <string name="t_balance">Total balance: </string>
     <string name="t_set">Set</string>
+    <string name="energy">Energy Level</string>
 
 
     <string name="b_food">Food</string>

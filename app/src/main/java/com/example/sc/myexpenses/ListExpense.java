@@ -43,6 +43,7 @@ public class ListExpense extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, arrayOfExpense);
 
+
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
@@ -56,5 +57,6 @@ public class ListExpense extends AppCompatActivity {
             }
 
         });
+
     }
 }

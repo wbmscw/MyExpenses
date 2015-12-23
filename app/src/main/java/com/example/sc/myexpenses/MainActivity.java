@@ -2,12 +2,16 @@ package com.example.sc.myexpenses;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.drawable.ClipDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.util.Log;
 
@@ -15,7 +19,37 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
+    private int etPercent;
+    private ClipDrawable mImageDrawable;
+    int amt;
+    int incm;
 
+    // a field in your class
+    private int mLevel = 0;
+    private int fromLevel = 0;
+    private int toLevel = 0;
+
+    public static final int MAX_LEVEL = 10000;
+    public static final int LEVEL_DIFF = 100;
+    public static final int DELAY = 30;
+
+    private Handler mUpHandler = new Handler();
+    private Runnable animateUpImage = new Runnable() {
+
+        @Override
+        public void run() {
+            doTheUpAnimation(fromLevel, toLevel);
+        }
+    };
+
+    private Handler mDownHandler = new Handler();
+    private Runnable animateDownImage = new Runnable() {
+
+        @Override
+        public void run() {
+            doTheDownAnimation(fromLevel, toLevel);
+        }
+    };
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
@@ -53,24 +87,31 @@ public class MainActivity extends AppCompatActivity {
             mIncome.setText("0.0");
             mExpense.setText("0.0");
             mBalance.setText("0.0");
+            etPercent=0;
         }else{
             if(Objects.equals(monthlyIncome, null)){
                 mIncome.setText("0.0");
                 mExpense.setText(monthlyExpense);
                 double bal = 0-Double.parseDouble(monthlyExpense);
                 mBalance.setText(String.valueOf(bal));
+                etPercent=0;
             }else{
                 if(Objects.equals(monthlyExpense, null)){
                     double inc=Double.parseDouble(monthlyIncome);
                     mIncome.setText(String.valueOf(inc));
                     mExpense.setText("0.0");
                     mBalance.setText(String.valueOf(inc));
+                    etPercent=100;
                 }else{
                     double inc=Double.parseDouble(monthlyIncome);
                     double ex=Double.parseDouble(monthlyExpense);
                     mIncome.setText(String.valueOf(inc));
                     mExpense.setText(String.valueOf(ex));
                     mBalance.setText(String.valueOf(inc-ex));
+
+                    int amt=Integer.parseInt(monthlyIncome)-Integer.parseInt(monthlyExpense);
+                    int incm = (Integer.parseInt(monthlyIncome));
+                    etPercent = amt*100/incm ;
                 }
             }
         }
@@ -101,6 +142,31 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+
+        //percentage of remaining display in the progress bar
+        ImageView img = (ImageView) findViewById(R.id.imageView1);
+        mImageDrawable = (ClipDrawable) img.getDrawable();
+        mImageDrawable.setLevel(0);
+        int temp_level = (etPercent * MAX_LEVEL) / 100;
+
+        if (toLevel == temp_level || temp_level > MAX_LEVEL) {
+            return;
+        }
+        toLevel = (temp_level <= MAX_LEVEL) ? temp_level : toLevel;
+        if (toLevel > fromLevel) {
+            // cancel previous process first
+            mDownHandler.removeCallbacks(animateDownImage);
+            MainActivity.this.fromLevel = toLevel;
+
+            mUpHandler.post(animateUpImage);
+        } else {
+            // cancel previous process first
+            mUpHandler.removeCallbacks(animateUpImage);
+            MainActivity.this.fromLevel = toLevel;
+
+            mDownHandler.post(animateDownImage);
+        }
+
     }
 
 
@@ -195,5 +261,27 @@ public class MainActivity extends AppCompatActivity {
         final int result=1;
         viewExpense.putExtra("ExtraCategory","Entertainment");
         startActivityForResult(viewExpense, result);
+    }
+
+    private void doTheUpAnimation(int fromLevel, int toLevel) {
+        mLevel += LEVEL_DIFF;
+        mImageDrawable.setLevel(mLevel);
+        if (mLevel <= toLevel) {
+            mUpHandler.postDelayed(animateUpImage, DELAY);
+        } else {
+            mUpHandler.removeCallbacks(animateUpImage);
+            MainActivity.this.fromLevel = toLevel;
+        }
+    }
+
+    private void doTheDownAnimation(int fromLevel, int toLevel) {
+        mLevel -= LEVEL_DIFF;
+        mImageDrawable.setLevel(mLevel);
+        if (mLevel >= toLevel) {
+            mDownHandler.postDelayed(animateDownImage, DELAY);
+        } else {
+            mDownHandler.removeCallbacks(animateDownImage);
+            MainActivity.this.fromLevel = toLevel;
+        }
     }
 }
